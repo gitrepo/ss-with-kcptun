@@ -41,7 +41,7 @@ RUN \
 
 #RUN curl https://ss.nsupdate.info:axvKQ4TTcE@ipv4.nsupdate.info/nic/update
 
-RUN echo 'root:root' |chpasswd
+#RUN echo 'root:root' |chpasswd
 
 #RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
 #	sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
