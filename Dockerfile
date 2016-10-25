@@ -8,27 +8,26 @@ ENV KCP_VER 20161009
 
 RUN \
     apk add --no-cache --virtual .build-deps \
-        curl \
-        autoconf \
-        build-base \
-        libtool \
-        linux-headers \
-        openssl-dev \
-        asciidoc \
-        xmlto \
-        pcre-dev \
-	openssh-server \
-RUN \
-    apk add --no-cache --virtual .run-deps \
-      pcre \
-      curl -fSL https://github.com/shadowsocks/shadowsocks-libev/archive/v$SS_VER.tar.gz | tar xz \
-      cd shadowsocks-libev-$SS_VER \
-      ./configure \
-      make \
-      make install \
-      cd .. \
-      rm -rf shadowsocks-libev-$SS_VER \
-    apk del .build-deps
+       curl \
+       autoconf \
+       build-base \
+       libtool \
+       linux-headers \
+       openssl-dev \
+       asciidoc \
+       xmlto \
+       pcre-dev \
+       openssh-server \
+      && apk add --no-cache --virtual .run-deps \
+         pcre \
+      && curl -fSL https://github.com/shadowsocks/shadowsocks-libev/archive/v$SS_VER.tar.gz | tar xz \
+      && cd shadowsocks-libev-$SS_VER \
+      && ./configure \
+      && make \
+      && make install \
+      && cd .. \
+      && rm -rf shadowsocks-libev-$SS_VER \
+      && apk del .build-deps
 
 RUN \
     apk add --no-cache --virtual .build-deps curl \
