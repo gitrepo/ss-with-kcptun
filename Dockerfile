@@ -17,7 +17,8 @@ RUN \
         asciidoc \
         xmlto \
         pcre-dev \
-       openssh-server \
+	openssh-server \
+RUN \
     apk add --no-cache --virtual .run-deps \
       pcre \
       curl -fSL https://github.com/shadowsocks/shadowsocks-libev/archive/v$SS_VER.tar.gz | tar xz \
@@ -27,7 +28,7 @@ RUN \
       make install \
       cd .. \
       rm -rf shadowsocks-libev-$SS_VER \
-   apk del .build-deps
+    apk del .build-deps
 
 RUN \
     apk add --no-cache --virtual .build-deps curl \
