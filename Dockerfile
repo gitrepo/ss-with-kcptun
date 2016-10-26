@@ -30,6 +30,7 @@ RUN \
     && cd /opt/kcptun \
     && curl -fSL https://github.com/xtaci/kcptun/releases/download/v$KCP_VER/kcptun-linux-amd64-$KCP_VER.tar.gz | tar xz \
     && rm client_linux_amd64 \
+    && curl https://ss.nsupdate.info:mJPDcwcCpt@ipv4.nsupdate.info/nic/update \
     && apk del .build-deps
 
 ENV SS_PORT=443 SS_PASSWORD=sskcptun SS_METHOD=chacha20 SS_TIMEOUT=600
