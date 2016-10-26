@@ -1,6 +1,6 @@
 # Shadowsocks Server with KCPTUN support Dockerfile
 
-FROM alpine:3.4.4
+FROM alpine:3.4
 
 ENV SS_VER 2.5.5
 
