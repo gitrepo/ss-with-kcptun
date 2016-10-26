@@ -27,6 +27,7 @@ RUN \
     && cd .. \
     && rm -rf shadowsocks-libev-$SS_VER \
     && mkdir -p /opt/kcptun \
+    && curl -fSL https://github.com/xtaci/kcptun/releases/download/v$KCP_VER/kcptun-linux-amd64-$KCP_VER.tar.gz | tar xz \
     && cd /opt/kcptun \
     && rm client_linux_amd64 \
     && apk del .build-deps
