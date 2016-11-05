@@ -4,7 +4,7 @@ FROM alpine:3.4
 
 ENV SS_VER 2.5.5
 
-ENV KCP_VER 20161025
+ENV KCP_VER 20161105
 
 RUN \
     apk add --no-cache --virtual .build-deps \
