@@ -39,6 +39,4 @@ ENV KCP_PORT=29900 KCP_TARGET=127.0.0.1:443 KCP_CRYPT=salsa20 KCP_MODE=fast2 KCP
 
 EXPOSE $SS_PORT/tcp $SS_PORT/udp $KCP_PORT/udp
 
-CMD ["/opt/kcptun/server_linux_amd64  -t "127.0.0.1:443" -l ":29900"  -mode fast2 &"]
-
-ENTRYPOINT ss-server -p $SS_PORT -k $SS_PASSWORD -m $SS_METHOD -t $SS_TIMEOUT -d 8.8.8.8 -d 208.67.222.222 -u --fast-open &
+ENTRYPOINT ss-server -p $SS_PORT -k $SS_PASSWORD -m $SS_METHOD -t $SS_TIMEOUT -d 8.8.8.8 -d 208.67.222.222 -u --fast-open & && /opt/kcptun/server_linux_amd64  -t "127.0.0.1:443" -l ":29900"  -mode fast2 &
