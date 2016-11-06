@@ -36,7 +36,7 @@ RUN cd ~
 
 CMD ["curl -fSL https://github.com/gitrepo/ss-with-kcptun/raw/master/entrypoint.sh"]
 
-RUN chmod +x ~/entrypoint.sh
+CMD ["chmod +x ~/entrypoint.sh"]
 
 ENV SS_PORT=443 SS_PASSWORD=sskcptun SS_METHOD=chacha20 SS_TIMEOUT=600
 
