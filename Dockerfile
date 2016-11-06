@@ -38,4 +38,4 @@ ENV KCP_PORT=29900
 
 EXPOSE $SS_PORT/tcp $SS_PORT/udp $KCP_PORT/udp
 
-ENTRYPOINT ["ss-server -p 443 -k $SS_PASSWORD -m chacha20 -t 600 -d 8.8.8.8 -d 208.67.222.222 -u --fast-open && /opt/kcptun/server_linux_amd64  -t "127.0.0.1:443" -l ":29900"  -mode fast2 && curl  "https://ss.nsupdate.info:mJPDcwcCpt@ipv4.nsupdate.info/nic/update""]
+ENTRYPOINT ["ss-server -p 443 -k $SS_PASSWORD -m chacha20 -t 600 -d 8.8.8.8 -d 208.67.222.222 -u --fast-open"]
