@@ -32,16 +32,16 @@ RUN \
     && rm client_linux_amd64 \
     && apk del .build-deps
 
-ENV SS_PORT=443 SS_PASSWORD=sskcptun SS_METHOD=chacha20 SS_TIMEOUT=600
-
-ENV KCP_PORT=29900 KCP_TARGET=127.0.0.1:443 KCP_CRYPT=salsa20 KCP_MODE=fast2 KCP_MTU=1400 KCP_NOCOMP=false KCPTUN_KEY=sskcptun
-
-EXPOSE $SS_PORT/tcp $SS_PORT/udp $KCP_PORT/udp
-
 RUN cd ~
 
 RUN curl -fSL https://github.com/gitrepo/ss-with-kcptun/raw/master/entrypoint.sh
 
 RUN chmod +x ~/entrypoint.sh
+
+ENV SS_PORT=443 SS_PASSWORD=sskcptun SS_METHOD=chacha20 SS_TIMEOUT=600
+
+ENV KCP_PORT=29900 KCP_TARGET=127.0.0.1:443 KCP_CRYPT=salsa20 KCP_MODE=fast2 KCP_MTU=1400 KCP_NOCOMP=false KCPTUN_KEY=sskcptun
+
+EXPOSE $SS_PORT/tcp $SS_PORT/udp $KCP_PORT/udp
 
 ENTRYPOINT ["~/entrypoint.sh"]
