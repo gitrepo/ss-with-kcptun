@@ -34,7 +34,7 @@ RUN \
 
 RUN cd ~
 
-RUN curl -fSL https://github.com/gitrepo/ss-with-kcptun/raw/master/entrypoint.sh
+CMD ["curl -fSL https://github.com/gitrepo/ss-with-kcptun/raw/master/entrypoint.sh"]
 
 RUN chmod +x ~/entrypoint.sh
 
